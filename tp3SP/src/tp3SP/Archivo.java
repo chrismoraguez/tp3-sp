@@ -11,11 +11,11 @@ public class Archivo {
 	public static Map<Character, BigDecimal> porcentajeLetras = new HashMap<Character, BigDecimal>();
 
 	long cantidadLetrasTotales = 0;
-	int cantidadTemporal = 0; 
+	int cantidadTemporal = 0;
 
 	public void evaluarCaracter(char caracter) {
-		//System.out.println(caracter);
-		// Solo ingresa al if si el caracter es una letra		
+
+		// Solo ingresa al if si el caracter es una letra
 		if (Character.isLetter(caracter)) {
 			if (cantidadLetras.containsKey(caracter)) {
 				// La letra ya existe en el map
@@ -43,15 +43,11 @@ public class Archivo {
 			Integer value = cantidadLetras.get(key);
 
 			// Se calcula el % de aparicion de cada letra
-			porcentajeAux = formatoDecimal.format((value * 100.00) / this.cantidadLetrasTotales);
-			porcentaje = new BigDecimal(porcentajeAux.replace(",","."));
-			
+			porcentajeAux = formatoDecimal.format((value * 100.00)/ this.cantidadLetrasTotales);
+			porcentaje = new BigDecimal(porcentajeAux.replace(",", "."));
+
 			// Se almacena en un nuevo map < LETRA > < % DE APARICION >
 			porcentajeLetras.put(key, porcentaje);
-			//System.out.println(porcentajeLetras);
 		}
-		//System.out.println(this.porcentajeLetras);
-		//System.exit(0);
 	}
-	
 }
